@@ -12,7 +12,7 @@ if __name__ == "__main__":
     # Initialization
     for i in range(NUM_ROBOT):
         robot = Robot(i,
-                      np.array([X_START-3*random.random(), -5.0*random.random()]),
+                      np.array([X_START-8*random.random(), -10.0*random.random()]),
                       np.zeros(2))
         robots.append(robot)
     

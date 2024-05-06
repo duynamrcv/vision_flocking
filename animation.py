@@ -17,7 +17,7 @@ def getCircle(x,y,r):
 def findFocalIndex(data):
     robots = []
     for i in range(NUM_ROBOT):
-        robots.append(data[i]['path'][-1,:])
+        robots.append(data[i]['path'][-1,:2])
     robots = np.array(robots)
     center = np.sum(robots,axis=0)/NUM_ROBOT
     focal = spatial.KDTree(robots).query(center)[1]

@@ -1,4 +1,6 @@
 import numpy as np
+from scipy.spatial import Delaunay
+
 from config import *
 
 class Robot():
@@ -80,10 +82,10 @@ class Robot():
         metric_set = dict(sorted(metric_set.items(), key=lambda item: item[1]))
 
         # Detect vision set
-        vision_set = []
+        vision_set = dict()
         for j in metric_set.keys():
-            if vision_set == []:
-                vision_set.append(j)
+            if not vision_set:
+                vision_set[j] = robots[j].position
             else:
                 r_ij = robots[j].position - self.position
                 d_ij = metric_set[j]
@@ -91,7 +93,7 @@ class Robot():
                 rhat_ij = ROBOT_RADIUS/d_ij
 
                 is_occlusion = False
-                for k in vision_set:
+                for k in vision_set.keys():
                     r_ik = robots[k].position - self.position
                     d_ik = metric_set[k]
                     u_ik = r_ik/d_ik
@@ -100,5 +102,19 @@ class Robot():
                         is_occlusion = True
                         break
                 if not is_occlusion:
-                    vision_set.append(j)
-        return vision_set
+                    vision_set[j] = robots[j].position
+        if not USE_VORONOI:
+            return list(vision_set.keys())
+        else:
+            if len(vision_set) < 3:
+                return list(vision_set.keys())
+            else:
+                keys = list(vision_set.keys())
+                points = list(vision_set.values())
+                points = np.array(points)
+                points = np.vstack([points, self.position])
+                indptr_neigh, neighbours = Delaunay(points).vertex_neighbor_vertices
+                voronoi_neigh = neighbours[indptr_neigh[points.shape[0]-1]:indptr_neigh[points.shape[0]]]
+                vision_voronoi_set = [keys[j] for j in voronoi_neigh]
+                # print(vision_voronoi_set)
+                return vision_voronoi_set
