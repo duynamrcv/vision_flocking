@@ -7,6 +7,10 @@ from config import *
 
 percent = 0.3 
 width = 0.05
+export = True
+if export:
+    import cv2
+    image_array = []
 
 def getCircle(x,y,r):
     theta = np.linspace( 0 , 2 * np.pi , 50 )   
@@ -65,4 +69,15 @@ with open(FILE_NAME, 'rb') as file:
                                         lambda event:
                                         [exit(0) if event.key == 'escape' else None])
         plt.pause(0.001)
+
+        if export:
+            file_name = "results/data.png"
+            plt.savefig(file_name)
+            img = cv2.imread(file_name)
+            image_array.append(img)
+
+    if export:
+        import imageio
+        imageio.mimsave('results/{}_{}.gif'.format(MODE, USE_VORONOI), image_array)
+
     plt.show()
