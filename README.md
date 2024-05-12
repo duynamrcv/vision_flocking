@@ -27,7 +27,7 @@ python3 main.py
 ```
 The data will be saved in `*.txt` file. To view animation, please run:
 ```
-python animaation.py
+python animation.py
 ```
 
 ## Results
