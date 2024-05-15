@@ -43,11 +43,13 @@ class Robot():
             ang_noise = np.arctan2(*(pose-self.position)[::-1]) + np.random.normal(0,EPS_BEARING,1)[0]
             observed_robots.append(np.array([dis_noise*np.cos(ang_noise),
                                              dis_noise*np.sin(ang_noise)]))
-            observed_robots.append(pose-self.position)
+            # observed_robots.append(pose-self.position)
         return observed_robots
 
     def behaviorSocial(self, observed_robots):
-        v_coh = 0; v_sep = 0
+        v_coh = 0.; v_sep = 0.
+        if len(self.neighbor_set) == 0:
+            return 0.
         for j in range(len(self.neighbor_set)):
             r_ij = observed_robots[j]
             v_coh += r_ij

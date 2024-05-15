@@ -4,8 +4,8 @@ TIMESTEP = 0.1
 ROBOT_RADIUS = 0.25
 SENSING_RADIUS = 5.0
 ITER_MAX = 50000
-EPS_DISTANCE = 0.0          # m
-EPS_BEARING = np.deg2rad(0) # rad
+EPS_DISTANCE = 0.1          # m
+EPS_BEARING = np.deg2rad(5) # rad
 
 VREF = 1.0
 UREF = np.array([1,0])
@@ -22,5 +22,5 @@ X_GOAL = 30.
 NUM_ROBOT = 50
 
 MODE = "vision"     # metric, vision
-USE_VORONOI = True
+USE_VORONOI = False
 FILE_NAME = "data_" + MODE + "_{}".format(USE_VORONOI) + ".txt"
