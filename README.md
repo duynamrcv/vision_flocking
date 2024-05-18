@@ -35,3 +35,18 @@ python animation.py
 | :---:        |     :---:      |
 |  <a href="results/vision_True.gif"><img src="results/vision_False.gif" alt="Vision-based Voronoi neighbor selection" width="100%" ></a>   | <a href="results/vision_False.gif"><img src="results/vision_True.gif" alt="Vision-based Voronoi neighbor selection" width="100%" ></a>    |
 
+## Comparison
+### Paths
+| Vision-based neighbor selection | Vision-based Voronoi neighbor selection |
+| :---:        |     :---:      |
+|  <img src="results/vision_False.png" alt="Vision-based Voronoi neighbor selection" width="100%" >   | <img src="results/vision_True.png" alt="Vision-based Voronoi neighbor selection" width="100%" >    |
+
+### Scalability
+|  |  |
+| :---:        |     :---:      |
+|  <img src="results/number_order.png" alt="Vision-based Voronoi neighbor selection" width="100%" >   | <img src="results/number_neighbor.png" alt="Vision-based Voronoi neighbor selection" width="100%" >    |
+
+### Noise
+|  |  |
+| :---:        |     :---:      |
+|  <img src="results/noise_dis_order.png" alt="Vision-based Voronoi neighbor selection" width="100%" >   | <img src="results/noise_bea_order.png" alt="Vision-based Voronoi neighbor selection" width="100%" >    |
