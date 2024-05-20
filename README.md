@@ -8,7 +8,7 @@ And the following [video](https://youtu.be/3-O85lB_DJQ) gives the explanation of
 
 ## Installation
 ```
-git@github.com:duynamrcv/vision_flocking.git
+git clone git@github.com:duynamrcv/vision_flocking.git
 ```
 
 ## Run simulation
@@ -18,8 +18,8 @@ The current version anables some type of neighbor selection methods, to change t
     * `metric`: robots in predefined distance are choose as neighbors.
     * `vision`: robots that vision distance and do not occluded are chose as neighbors.
 * **USE_VORONOI**:
-    * `True`: use voronoi to refine neigbor set
-    * `False`: not use voronoi
+    * True: use voronoi to refine neigbor set
+    * False: not use voronoi
 
 To run the simulation, please run:
 ```
@@ -27,7 +27,7 @@ python3 main.py
 ```
 The data will be saved in `*.txt` file. To view animation, please run:
 ```
-python animation.py
+python3 animation.py
 ```
 
 ## Results
