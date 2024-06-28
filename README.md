@@ -29,6 +29,7 @@ The data will be saved in `*.txt` file. To view animation, please run:
 ```
 python3 animation.py
 ```
+Note that the parameter `export=True` is use to export video file, if not, set `export=False`.
 
 ## Results
 | Vision-based neighbor selection | Vision-based Voronoi neighbor selection |
